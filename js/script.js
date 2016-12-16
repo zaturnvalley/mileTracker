@@ -109,6 +109,13 @@ $(document).one('pageinit', function(){
   * Set current clicked miles & date
   */
   function setCurrent(){
-    
+    // Set ls items
+    localStorage.setItem('currentMiles', $(this).data('miles'));
+    localStorage.setItem('currentDate', $(this).data('date'));
+
+    // Insert form fields
+    $('#editMiles').val(localStorage.getItem('currentMiles'));
+    $('#editDate').val(localStorage.getItem('currentDate'));
+
   }
 });
