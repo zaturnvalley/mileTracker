@@ -1,7 +1,22 @@
 $(document).one('pageinit', function(){
   // Add Handler, tap is mobile for click
   $('#submitAdd').on('tap', addRun);
+  //Display Runs
+  showRuns();
+  /* 
+  * Show all runs on homepage
+  */
+  showruns(){
+    // get runs object
+    var runs = getRunsObject();
 
+    // check if empty
+    if (runs != '' && runs != null){
+      for (var i = 0; i < runs.length; i++) {
+        ('$stats').append();
+      }
+    }
+  }
   /* 
   * Add a run
   */
