@@ -6,14 +6,16 @@ $(document).one('pageinit', function(){
   /* 
   * Show all runs on homepage
   */
-  function showruns(){
+  function showRuns(){
     // get runs object
     var runs = getRunsObject();
 
     // check if empty
     if (runs != '' && runs != null){
       for (var i = 0; i < runs.length; i++) {
-        $('$stats').append('<li class="ui-body-inherit ui-li-static"><strong>Date:</strong>' + runs[i]["date"] + '</li>');
+        $('#stats').append(`<li class="ui-body-inherit ui-li-static">
+                            <strong>Date:</strong>` + runs[i]["date"] + 
+                            `<br><strong>Distance: </strong>` + runs[i]["miles"] + `m</li>`);
       }
       $('#home').bind('pageinit', function(){
         $('#stats').listview('refresh');
