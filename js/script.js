@@ -17,6 +17,19 @@ $(document).one('pageinit', function(){
     };
 
     var runs = getRunsObject();
+
+    // Add run to runs array
+    runs.push(run);
+
+    alert('Run added');
+
+    // Set stringified object to local storage
+    localStorage.setItem('runs', JSON.stringify(runs));
+
+    // Redirect to index page
+    window.location.href="index.html";
+
+    return false;
   }
     /* 
     * Get runs object
