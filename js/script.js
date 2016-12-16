@@ -26,7 +26,7 @@ $(document).one('pageinit', function(){
                             `<br><strong>Distance: </strong>` + runs[i]["miles"] + 
                             `m<div class="controls"><a href="#edit" id="editLink" data-miles="` + 
                             runs[i]['miles'] + `"data-date="` + runs[i]['date'] + `">Edit</a> | 
-                            <a href="#deleteLink" data-miles="` + runs[i]['miles'] + `"data-date="` + 
+                            <a href="#delete" id="deleteLink" data-miles="` + runs[i]['miles'] + `"data-date="` + 
                             runs[i]['date'] + `" onClick="return confirm('Are you sure?')">Delete</a></div></li>`);
       }
       $('#home').bind('pageinit', function(){
