@@ -15,7 +15,9 @@ $(document).one('pageinit', function(){
       for (var i = 0; i < runs.length; i++) {
         $('#stats').append(`<li class="ui-body-inherit ui-li-static">
                             <strong>Date:</strong>` + runs[i]["date"] + 
-                            `<br><strong>Distance: </strong>` + runs[i]["miles"] + `m</li>`);
+                            `<br><strong>Distance: </strong>` + runs[i]["miles"] + 
+                            `m<div class="controls"><a href="#edit">Edit</a> | 
+                            <a href="#">Delete</a></div></li>`);
       }
       $('#home').bind('pageinit', function(){
         $('#stats').listview('refresh');
