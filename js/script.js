@@ -5,6 +5,8 @@ $(document).one('pageinit', function(){
   $('#submitAdd').on('tap', addRun);
   // Edit Handler, tap is mobile for click
   $('#submitEdit').on('tap', editRun);
+  // Delete Handler, tap is mobile for click
+  $('#stats').on('tap', '#deleteLink', deleteRun);
   // Set Current Handler, tap is mobile for click
   $('#stats').on('tap', '#editLink', setCurrent);
   /* 
@@ -22,7 +24,8 @@ $(document).one('pageinit', function(){
                             `<br><strong>Distance: </strong>` + runs[i]["miles"] + 
                             `m<div class="controls"><a href="#edit" id="editLink" data-miles="` + 
                             runs[i]['miles'] + `"data-date="` + runs[i]['date'] + `">Edit</a> | 
-                            <a href="#">Delete</a></div></li>`);
+                            <a href="#deleteLink" data-miles="` + runs[i]['miles'] + `"data-date="` + 
+                            runs[i]['date'] + `" onClick="return confirm('Are you sure?')">Delete</a></div></li>`);
       }
       $('#home').bind('pageinit', function(){
         $('#stats').listview('refresh');
