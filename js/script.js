@@ -13,7 +13,7 @@ $(document).one('pageinit', function(){
     // Create 'run' object
     var run = {
       date: date,
-      miles: parseFloat(miles);
+      miles: parseFloat(miles)
     };
 
     var runs = getRunsObject();
