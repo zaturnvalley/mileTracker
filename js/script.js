@@ -9,6 +9,8 @@ $(document).one('pageinit', function(){
   $('#stats').on('tap', '#deleteLink', deleteRun);
   // Set Current Handler, tap is mobile for click
   $('#stats').on('tap', '#editLink', setCurrent);
+  // Clear Handler, tap is mobile for click
+  $('#clearRuns').on('tap', clearRuns);
   /* 
   * Show all runs on homepage
   */
