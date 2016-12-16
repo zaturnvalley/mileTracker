@@ -125,10 +125,7 @@ $(document).one('pageinit', function(){
       localStorage.setItem('runs', JSON.stringify(runs));
     }
 
-    alert('Run updated');
-
-    // Set stringified object to local storage
-    localStorage.setItem('runs', JSON.stringify(runs));
+    alert('Run deleted');
 
     // Redirect to index page
     window.location.href="index.html";
