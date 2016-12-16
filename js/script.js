@@ -6,6 +6,34 @@ $(document).one('pageinit', function(){
   * Add a run
   */
   function addRun(){
-    alert(1);
+    // Get form values
+    var miles = $('#addMiles').val();
+    var date = $('#addDate').val();
+
+    // Create 'run' object
+    var run = {
+      date: date,
+      miles: parseFloat(miles);
+    };
+
+    var runs = getRunsObject();
   }
+    /* 
+    * Get runs object
+    */
+
+    function getRunsObject() {
+      // Set runs array
+      var runs = new Array();
+      // Get current runs from localStorage, comes back as string
+      var currentRuns = localStorage.getItem('runs');
+
+      // Check local storage
+      if(currentRuns != null){
+        // Set to runs
+        var runs = JSON.parse(currentRuns);
+      }
+      
+    }
+  
 });
