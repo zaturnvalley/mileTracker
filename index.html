@@ -24,11 +24,24 @@
     <div data-role="header" data-theme="b">
       <h1>Mile Tracker</h1>
     </div>
+
     <div data-role="navbar">
       <ul>
         <li><a href="#home" data-transition="none" data-icon="home">Home</a></li>
         <li><a href="#add" data-transition="none" data-icon="plus">Add Run</a></li>
       </ul>
+    </div>
+
+    <div data-role="content">
+      <h3>Welcome to Mile Tracker</h3>
+        <p>This App Allows you to track your running progress in miles.</p>
+
+        <h3>Latest Run</h3>
+
+        <ul id="stats" data-role="listview" data-filter="true" data-filter-placeholder="Filter runs by date or distance" data-inset="true">
+        </ul>
+        <br>
+        <button id="clearRuns" onclick="return confirm('Are you sure?')" data-theme="b">Clear Total Milage</button>
     </div>
   </div>
 
