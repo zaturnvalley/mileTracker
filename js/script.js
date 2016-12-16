@@ -20,7 +20,7 @@ $(document).one('pageinit', function(){
         $('#stats').append(`<li class="ui-body-inherit ui-li-static">
                             <strong>Date:</strong>` + runs[i]["date"] + 
                             `<br><strong>Distance: </strong>` + runs[i]["miles"] + 
-                            `m<div class="controls"><a href="#edit" id="edit" data-miles="` + 
+                            `m<div class="controls"><a href="#edit" id="editLink" data-miles="` + 
                             runs[i]['miles'] + `"data-date="` + runs[i]['date'] + `">Edit</a> | 
                             <a href="#">Delete</a></div></li>`);
       }
