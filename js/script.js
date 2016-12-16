@@ -4,7 +4,9 @@ $(document).one('pageinit', function(){
   // Add Handler, tap is mobile for click
   $('#submitAdd').on('tap', addRun);
   // Edit Handler, tap is mobile for click
-  $('#submitEdit').on('tap', EditRun);
+  $('#submitEdit').on('tap', editRun);
+  // Set Current Handler, tap is mobile for click
+  $('#stats').on('tap', '#editLink', setCurrent);
   /* 
   * Show all runs on homepage
   */
@@ -56,23 +58,57 @@ $(document).one('pageinit', function(){
 
     return false;
   }
-    /* 
-    * Get runs object
-    */
+  /* 
+  *  Edit Run
+  */
+  function editRun(){
+    // Get form values
+    var miles = $('#addMiles').val();
+    var date = $('#addDate').val();
 
-    function getRunsObject() {
-      // Set runs array
-      var runs = new Array();
-      // Get current runs from localStorage, comes back as string
-      var currentRuns = localStorage.getItem('runs');
+    // Create 'run' object
+    var run = {
+      date: date,
+      miles: parseFloat(miles)
+    };
 
-      // Check local storage
-      if(currentRuns != null){
-        // Set to runs
-        var runs = JSON.parse(currentRuns);
-      }
-      // Return runs object
-      return runs.sort(function(a,b){return new Date(b.date) - new Date(a.date)});
+    var runs = getRunsObject();
+
+    // Add run to runs array
+    runs.push(run);
+
+    alert('Run added');
+
+    // Set stringified object to local storage
+    localStorage.setItem('runs', JSON.stringify(runs));
+
+    // Redirect to index page
+    window.location.href="index.html";
+
+    return false;
+  }
+  /* 
+  * Get runs object
+  */
+
+  function getRunsObject() {
+    // Set runs array
+    var runs = new Array();
+    // Get current runs from localStorage, comes back as string
+    var currentRuns = localStorage.getItem('runs');
+
+    // Check local storage
+    if(currentRuns != null){
+      // Set to runs
+      var runs = JSON.parse(currentRuns);
     }
-  
+    // Return runs object
+    return runs.sort(function(a,b){return new Date(b.date) - new Date(a.date)});
+  }
+  /* 
+  * Set current clicked miles & date
+  */
+  function setCurrent(){
+    
+  }
 });
