@@ -66,18 +66,19 @@ $(document).one('pageinit', function(){
     currentMiles = localStorage.getItem('currentMiles');
     currentDate = localStorage.getItem('currentDate');
 
+    var runs = getRunsObject();
+
     // Loop through current runs
     for(var i = 0; i < runs.length; i++){
       if(runs[i].miles == currentMiles && runs[i].date == currentDate){
         runs.splice(i, 1);
       }
+      localStorage.setItem('runs', JSON.stringify(runs));
     }
 
-    var runs = getRunsObject();
-
     // Get form values
-    var miles = $('#addMiles').val();
-    var date = $('#addDate').val();
+    var miles = $('#editMiles').val();
+    var date = $('#editDate').val();
 
     // Create 'run' object
     var updateRun = {
@@ -85,10 +86,10 @@ $(document).one('pageinit', function(){
       miles: parseFloat(miles)
     };
 
-    // Add run to runs array
-    runs.push(run);
+    // Edit run from runs array
+    runs.push(updateRun);
 
-    alert('Run added');
+    alert('Run updated');
 
     // Set stringified object to local storage
     localStorage.setItem('runs', JSON.stringify(runs));
