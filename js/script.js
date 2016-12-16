@@ -33,7 +33,8 @@ $(document).one('pageinit', function(){
         // Set to runs
         var runs = JSON.parse(currentRuns);
       }
-      
+      // Return runs object
+      return runs.sort(function(a,b){return new Date(b.date) - new Date(a.date)});
     }
   
 });
