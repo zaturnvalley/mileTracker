@@ -134,6 +134,11 @@ $(document).one('pageinit', function(){
 
     return false;
   }
+
+  function clearRuns(){
+    localStorage.removeItem('runs');
+    $('#stats').html('<p>You have no logged runs</p>');
+  }
   /* 
   * Get runs object
   */
