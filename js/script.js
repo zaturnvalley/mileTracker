@@ -6,15 +6,18 @@ $(document).one('pageinit', function(){
   /* 
   * Show all runs on homepage
   */
-  showruns(){
+  function showruns(){
     // get runs object
     var runs = getRunsObject();
 
     // check if empty
     if (runs != '' && runs != null){
       for (var i = 0; i < runs.length; i++) {
-        ('$stats').append();
+        $('$stats').append('<li class="ui-body-inherit ui-li-static"><strong>Date:</strong>' + runs[i]["date"] + '</li>');
       }
+      $('#home').bind('pageinit', function(){
+        $('#stats').listview('refresh');
+      });
     }
   }
   /* 
