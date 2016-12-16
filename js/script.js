@@ -1,8 +1,10 @@
 $(document).one('pageinit', function(){
-  // Add Handler, tap is mobile for click
-  $('#submitAdd').on('tap', addRun);
   //Display Runs
   showRuns();
+  // Add Handler, tap is mobile for click
+  $('#submitAdd').on('tap', addRun);
+  // Edit Handler, tap is mobile for click
+  $('#submitEdit').on('tap', EditRun);
   /* 
   * Show all runs on homepage
   */
@@ -16,7 +18,8 @@ $(document).one('pageinit', function(){
         $('#stats').append(`<li class="ui-body-inherit ui-li-static">
                             <strong>Date:</strong>` + runs[i]["date"] + 
                             `<br><strong>Distance: </strong>` + runs[i]["miles"] + 
-                            `m<div class="controls"><a href="#edit">Edit</a> | 
+                            `m<div class="controls"><a href="#edit" id="edit" data-miles="` + 
+                            runs[i]['miles'] + `"data-date="` + runs[i]['date'] + `">Edit</a> | 
                             <a href="#">Delete</a></div></li>`);
       }
       $('#home').bind('pageinit', function(){
